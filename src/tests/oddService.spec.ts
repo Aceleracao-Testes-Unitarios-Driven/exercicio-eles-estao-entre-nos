@@ -2,6 +2,7 @@ import { jest } from "@jest/globals";
 import { oddService } from "../services/oddService";
 import { secretService } from "../_secret_/secretService";
 import { areaFiftyOneRepository } from "../repositories/areaFiftyOneRepository";
+import sendSignal from "../_secret_/sendSignal";
 
 describe("Odd Service", () => {
   it("should return 'maybe not, who knows?' given its odd", () => {
@@ -24,6 +25,10 @@ describe("Odd Service", () => {
     jest
       .spyOn(areaFiftyOneRepository, "listOVNIS")
       .mockResolvedValue(expectedResult);
+
+    jest
+      .spyOn(sendSignal, "sendSignal")
+      .mockImplementationOnce(() => console.log("Test Signal"));
 
     const result = await oddService.listOVNIS();
 

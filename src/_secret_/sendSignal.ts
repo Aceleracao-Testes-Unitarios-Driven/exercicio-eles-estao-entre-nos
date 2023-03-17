@@ -1,5 +1,7 @@
 import { Ovni } from "@prisma/client";
 
-export default function (ovnis: Ovni[]) {
+function sendSignal(ovnis: Ovni[]) {
   console.info("Heellooooooo!");
 }
+
+export default { sendSignal };

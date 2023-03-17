@@ -12,7 +12,7 @@ function isReallyOdd(number: number) {
 
 async function listOVNIS() {
   const result = await areaFiftyOneRepository.listOVNIS();
-  sendSignal(result);
+  sendSignal.sendSignal(result);
   return result;
 }
 
